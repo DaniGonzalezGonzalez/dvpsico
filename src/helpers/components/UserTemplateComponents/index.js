@@ -1,0 +1,6 @@
+export * from './HeadHomePage.jsx'
+export * from './InfoCanal.jsx'
+export * from './Programas.jsx'
+export * from './FormasApoyo.jsx'
+export * from './Horario.jsx'
+export * from './Agradecimientos.jsx'
