@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from '../../../../assets/Icons';
+import { scrollToTop } from '../../../no-components/constants';
 
 export const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,12 +13,12 @@ export const ScrollToTopButton = () => {
     }
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   })
+  // }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

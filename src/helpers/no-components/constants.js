@@ -3,3 +3,10 @@ export const INITIAL_VALUE = {
     email:'', 
     displatName:''
 }
+
+export const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }

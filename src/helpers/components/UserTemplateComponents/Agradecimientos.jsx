@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useGetData } from "../../../hooks/useGetData"
 import { AgradecimientosIcon } from "../../../assets/Icons/AgradecimientosIcon"
 import { ArrowRight } from "../../../assets/Icons/ArrowRight"
+import { scrollToTop } from "../../no-components/constants"
 
 export function Agradecimientos() {
     const { agradecimientos } = useGetData()
@@ -31,11 +32,11 @@ export function Agradecimientos() {
                                 </Link>)}
                           </div>
                         </div>
-                        <div>{(item.titulo === 'Nivel 1') &&  <Link to="extra-listado-agradecimientos" title="Ver listado de agradecimientos"><div className="relative flex items-center justify-center mt-6 text-gray-900"><p className="relative z-10 px-1 bg-gray-200 rounded-l text-hover-animated-dark">Ver listado  </p><div className="bg-gray-200 rounded-r"><ArrowRight/></div></div>
+                        <div>{(item.titulo === 'Nivel 1') &&  <Link onClick={scrollToTop} to="extra-listado-agradecimientos" title="Ver listado de agradecimientos"><div className="relative flex items-center justify-center mt-6 text-gray-900"><p className="relative z-10 px-1 bg-gray-200 rounded-l text-hover-animated-dark">Ver listado  </p><div className="bg-gray-200 rounded-r"><ArrowRight/></div></div>
                                 </Link> }
                         </div>
 
-                        <div>{(item.titulo === 'Nivel 2') &&  <Link to="extra-listado-juegos" title="Ver catálogo de juegos"><div className="relative flex items-center justify-center mt-6 text-gray-900"><p className="relative z-10 px-1 bg-gray-200 rounded-l text-hover-animated-dark">Ver catálogo  </p><div className="bg-gray-200 rounded-r"><ArrowRight/></div></div>
+                        <div>{(item.titulo === 'Nivel 2') &&  <Link onClick={scrollToTop} to="extra-listado-juegos" title="Ver catálogo de juegos"><div className="relative flex items-center justify-center mt-6 text-gray-900"><p className="relative z-10 px-1 bg-gray-200 rounded-l text-hover-animated-dark">Ver catálogo  </p><div className="bg-gray-200 rounded-r"><ArrowRight/></div></div>
                                 </Link> }
                         </div>
                     </div>

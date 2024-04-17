@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import { useGetData } from "../../../hooks/useGetData";
+import { scrollToTop } from "../../no-components/constants";
 
 export function Programas() {
   const { programas } = useGetData()
@@ -47,7 +48,7 @@ export function Programas() {
         ))}
       </Slider>
       <div className="mt-24 text-center text-white">
-        <Link className="px-4 py-2 text-white bg-gray-700 rounded-t-3xl rounded-b-3xl hover:shadow-lg hover:bg-purple-500" to="extra-programas">
+        <Link onClick={scrollToTop} className="px-4 py-2 text-white bg-gray-700 rounded-t-3xl rounded-b-3xl hover:shadow-lg hover:bg-purple-500" to="extra-programas">
           Más información
         </Link>
       </div>
