@@ -63,7 +63,7 @@ export function ExtraListadoJuegos() {
           }
         </div>
         {/* Información de Clásicos inolvidables */}
-        <div className="w-full mt-10 color-fondo-imagen-juegos-2">
+        <div className="w-full my-10 color-fondo-imagen-juegos-2">
           {
             archivosDisenoWeb.map((item)=>(
               <div key={item.idDoc} className="flex-grow md:flex color-fondo-imagen-juegos-2">
@@ -81,28 +81,28 @@ export function ExtraListadoJuegos() {
           }
         </div>
         {/* Mapeados del listado de juegos */}
-        <div className="w-full text-gray-900 color-fondo-imagen-juegos-3">
+        <div className="w-full p-8 text-gray-200 bg-slate-950">
            {/* Título y Opción de orden */}
-          <div className="flex items-center justify-between pt-10">
+          <div className="flex items-center justify-between pt-10 mb-5">
             <h2 className="pl-10 font-bold text-start">Lista de Juegos:</h2>  
             <div className="pr-10 text-end">
               <label htmlFor="orden-select" className="mr-2 text-sm sm:text-base">Ordenar por:</label>
               <select id="orden-select" value={ordenSeleccionado} onChange={(e) => setOrdenSeleccionado(e.target.value)}
-                className="p-1 text-sm border border-gray-400 rounded sm:text-base sm:p-2"
+                className="p-1 text-sm border border-gray-400 rounded sm:text-base sm:p-2 text-slate-950"
               >
-                <option className="text-sm" value="titulo">Título</option>
-                <option className="text-sm" value="plataforma">Plataforma</option>
+                <option className="text-sm text-slate-950" value="titulo">Título</option>
+                <option className="text-sm text-slate-950" value="plataforma">Plataforma</option>
               </select>
             </div>       
           </div> 
-          <div className="grid gap-6 px-5 py-5 mx-auto xs:px-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">                      
+          <div className="grid grid-cols-2 gap-5 p-3 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">                      
           {
             listadoJuegosOrdenado.map((item)=>(
             // juegosFiltrados.map((item, index)=>(
               
-              <div className="h-32 px-2 m-4 sm:h-28" key={item?.idDoc}>
+              <div key={item?.idDoc}>
                 {console.log('Cargo')}
-                <div className={`h-full relative flex flex-col items-start justify-end p-6 text-xs text-white duration-300 rounded shadow-lg shadow-gray-700 min-h-60 dark-overlay hover:scale-105 hover:shadow-gray-900 opacity-95 hover:opacity-100`} 
+                {/* <div className={`h-full relative flex flex-col items-start justify-end p-6 text-xs text-white duration-300 rounded shadow-lg shadow-gray-700 min-h-60 dark-overlay hover:scale-105 hover:shadow-gray-900 opacity-95 hover:opacity-100`} 
                   // onMouseEnter={() => setHoveredItem(item.idDoc)}
                   // onMouseLeave={() => setHoveredItem(null)}
                   >
@@ -116,7 +116,28 @@ export function ExtraListadoJuegos() {
                         </div>
                     </div>                      
                   </div>              
-                </div>                        
+                </div>   */}
+
+
+
+
+                <div className="flex items-center justify-center gap-1 duration-500 opacity-90 xl:px-2 sm:flex hover:scale-105 hover:shadow-white hover:opacity-100">
+                                <div className="w-full h-full">
+                                    <div className="relative flex items-center justify-center gap-3 shadow-md sm:flex hover:rounded">
+                                        <img className="object-cover w-full h-40 rounded-lg" src={item?.url} alt="No hay imagen" />
+                                        <h3 className="absolute object-contain p-1 text-xs bg-gray-200 rounded-lg shadow right-2 bottom-2 shadow-black text-slate-950" title={`Plataforma: ${item?.infoExtra || 'Sin plataforma especificada'}`}>{item?.infoExtra}</h3>
+                                    </div>
+                                    <div className="sm:w-2/3">
+                                        <div className="flex flex-col gap-8 py-3 text-start">
+                                            <p className="text-xs text-gray-200">{item?.titulo}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
               </div>
               ))
             }
