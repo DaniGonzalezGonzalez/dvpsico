@@ -20,11 +20,11 @@ export function IndicePantallaPequena({textAlign, setMenuOpen}) {
   return (
     <div className="flex flex-col justify-center w-3/4 gap-3 mx-3 mt-6 mb-2 text-xs text-white sm:text-base sm:hidden font-montserrat">
         <Link to onClick={scrollToTop} className={`${textAlign} text-white font-montserrat text-link-underline`}>Inicio</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-informacion-canal')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Información del canal</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-programas')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Programas</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-horario')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Horario</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-formas-apoyo')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Apoyo</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-agradecimientos')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Agradecimientos</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-informacion-canal')} title="Información del canal" className={`${textAlign} text-white font-montserrat text-link-underline`}>Información del canal</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-programas')} title="Programas" className={`${textAlign} text-white font-montserrat text-link-underline overflow-hidden truncate`}>Programas</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-horario')} title="Horario" className={`${textAlign} text-white font-montserrat text-link-underline overflow-hidden truncate`}>Horario</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-formas-apoyo')} title='Apoyo' className={`${textAlign} text-white font-montserrat text-link-underline overflow-hidden truncate`}>Apoyo</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-agradecimientos')} title='Agradecimientos' className={`${textAlign} text-white font-montserrat text-link-underline overflow-hidden truncate`}>Agradecimientos</Link>
     </div>
   )
 }

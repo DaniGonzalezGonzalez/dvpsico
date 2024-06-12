@@ -84,8 +84,8 @@ export function ExtraListadoJuegos() {
         <div className="w-full p-8 text-gray-200 bg-slate-950">
            {/* Título y Opción de orden */}
           <div className="flex items-center justify-between pt-10 mb-5">
-            <h2 className="pl-10 font-bold text-start">Lista de Juegos:</h2>  
-            <div className="pr-10 text-end">
+            <h2 className="pl-3 font-bold text-start">Lista de Juegos:</h2>  
+            <div className="pr-3 text-end">
               <label htmlFor="orden-select" className="mr-2 text-sm sm:text-base">Ordenar por:</label>
               <select id="orden-select" value={ordenSeleccionado} onChange={(e) => setOrdenSeleccionado(e.target.value)}
                 className="p-1 text-sm border border-gray-400 rounded sm:text-base sm:p-2 text-slate-950"

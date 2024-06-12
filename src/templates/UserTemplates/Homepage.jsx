@@ -5,7 +5,7 @@ export function Homepage() {
   return (
     <div className="text-sm">
       <HeadHomePage/>
-      <div id='indice-informacion-canal' className="px-20 py-40 text-white bg-indigo-100 color-fondo-1">
+      <div id='indice-informacion-canal' className="py-40 text-white bg-indigo-100 px-14 sm:px-20 color-fondo-1">
         <InfoCanal/>      
       </div>
 

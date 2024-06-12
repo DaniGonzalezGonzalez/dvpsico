@@ -29,8 +29,8 @@ export function MainTemplate() {
 
   return (
     <>
-      <header className={`${isScrolled ? "bg-gray-600 color-fondo-1 shadow-md h-22" : `${location.pathname === '/' ? 'bg-transparent h-32': 'bg-gray-600 color-fondo-1 shadow-md h-22'}` } fixed top-0 w-screen z-50 transition-all duration-300 ease-in-out`}>
-          <div className={`${ location.pathname === '/' && isScrolled ? "m-2" : "m-2 mt-3" } p-3`}>
+      <header className={`${isScrolled ? `transition-all duration-1000 ease-in-out opacity-0 pointer-events-none` : `${location.pathname === '/' ? 'bg-transparent h-32': 'bg-gray-600 color-fondo-1 shadow-md h-22'}` } fixed top-0 w-screen z-50 transition-all duration-300 ease-in-out`}>
+          <div className={`${ location.pathname === '/' && isScrolled ? "m-2" : "m-2 mt-2" } p-3`}>
             <NavBar isScrolled={isScrolled}/>
           </div>
       </header>
