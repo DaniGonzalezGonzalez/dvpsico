@@ -9,18 +9,18 @@ export function ExtraProgramas() {
 
   return (
     <>
-        <div className="flex flex-col items-center justify-center min-h-screen pt-24 text-white color-fondo-3">          
+        <div className="flex flex-col items-center justify-center min-h-screen text-sm text-white lg:text-base pt-14 lg:pt-24 color-fondo-3">          
             <div>
               {programas.map((item)=>(
                 <div key={item?.idDoc}>
                   {(item?.titulo === 'Ciencia y Psicología') &&
-                    <div className="p-8 py-12">
+                    <div className="p-2 py-12 lg:p-8">
                       <div className="items-center justify-center flex-grow gap-3 xl:flex">
                         <div className="flex flex-col">
                           <h2 className="p-3 text-2xl font-bold text-center uppercase">{item?.titulo}</h2>
                           <div className="flex items-center justify-center p-6 mb-3"><img className="object-cover bg-black rounded xl:w-full h-96 opacity-70" src={item?.url} alt='No hay imagen'></img></div>
                         </div>
-                        <div className="p-6 text-justify xl:w-2/3">
+                        <div className="px-6 py-2 text-justify lg:p-6 xl:w-2/3">
                             <p className="xl:pt-14">{item?.infoExtra2}</p>
                             <p className="pt-6">{item?.infoExtra3}</p>
                             <div className="items-center justify-center flex-grow gap-6 pt-12 2xl:flex">
@@ -55,13 +55,13 @@ export function ExtraProgramas() {
                 {programas.map((item)=>(
                   <div key={item?.idDoc}>
                     {(item?.titulo === 'Psicología y Videojuegos') &&
-                      <div className="p-8 py-12">
+                      <div className="p-3 py-12 lg:p-8">
                       <div className="items-center justify-center flex-grow gap-3 xl:flex">
                         <div className="flex flex-col">
                           <h2 className="p-3 text-2xl font-bold text-center uppercase">{item?.titulo}</h2>
                           <div className="flex items-center justify-center p-6 mb-3"><img className="object-cover bg-black rounded xl:w-full h-96 opacity-70" src={item?.url} alt='No hay imagen'></img></div>
                         </div>
-                        <div className="p-6 text-justify xl:w-2/3">
+                        <div className="px-6 py-2 text-justify lg:p-6 xl:w-2/3">
                             <p className="xl:pt-14">{item?.infoExtra2}</p>
                             <p className="pt-6">{item?.infoExtra3}</p>
                             <div className="items-center justify-center flex-grow gap-6 pt-12 2xl:flex">
@@ -96,13 +96,13 @@ export function ExtraProgramas() {
                 {programas.map((item)=>(
                   <div key={item?.idDoc}>
                     {(item?.titulo === 'Grandes Desconocidos') &&
-                        <div className="p-8 py-12">
+                        <div className="p-3 py-12 lg:p-8">
                         <div className="items-center justify-center flex-grow gap-3 xl:flex">
                           <div className="flex flex-col">
                             <h2 className="p-3 text-2xl font-bold text-center uppercase">{item?.titulo}</h2>
                             <div className="flex items-center justify-center p-6 mb-3"><img className="object-cover bg-black rounded xl:w-full h-96 opacity-70" src={item?.url} alt='No hay imagen'></img></div>
                           </div>
-                          <div className="p-6 text-justify xl:w-2/3">
+                          <div className="px-6 py-2 text-justify lg:p-6 xl:w-2/3">
                               <p className="xl:pt-14">{item?.infoExtra2}</p>
                               <p className="pt-6">{item?.infoExtra3}</p>
                               <div className="items-center justify-center flex-grow gap-6 pt-12 2xl:flex">

@@ -110,6 +110,59 @@ export function EditContent() {
                           <label htmlFor="infoExtra3" className="block font-bold text-gray-800 font-montserrat">Información Extra 3</label>
                           <textarea className="block w-full p-2 border rounded" name="infoExtra3" id="infoExtra3" placeholder="Añadir info extra 3" rows="3" cols="33" value={contenido.infoExtra3} onChange={handleChange}></textarea>
                         </div>
+
+
+                        <h1 className="mt-10 mb-5">Datos para registro de videojuegos</h1>
+                        <h2 className="text-sm">Datos de Metacritic</h2>
+                          <div className="flex flex-col items-center justify-center flex-grow gap-10 md:flex-row">
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="notaMetacriticPrensa" className="block text-xsfont-montserrat">Nota de prensa en Metacritic</label>
+                              <input className="p-2 border rounded resize-none" name="notaMetacriticPrensa" id="notaMetacriticPrensa" placeholder="75" type="number" step={0.1} value={contenido.notaMetacriticPrensa} onChange={handleChange}></input>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="notaMetacriticUsuarios" className="block text-xs font-montserrat">Nota de usuarios en Metacritic</label>
+                              <input className="p-2 border rounded resize-none" name="notaMetacriticUsuarios" id="notaMetacriticUsuarios" placeholder="75" type="number" step={0.1} value={contenido.notaMetacriticUsuarios} onChange={handleChange}></input>
+                            </div>
+                          </div>
+
+                          <h2 className="text-sm">Datos de HowLongToBeat</h2>
+                          <div className="flex flex-col items-center justify-center gap-10">
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="tiempoMainStory" className="block text-xs font-montserrat">Main story</label>
+                              <input className="p-2 border rounded resize-none" name="tiempoMainStory" id="tiempoMainStory" placeholder="15" type="number" value={contenido.tiempoMainStory} onChange={handleChange}></input>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="tiempoMainAndSides" className="block text-xs font-montserrat">Main + extra</label>
+                              <input className="p-2 border rounded resize-none" name="tiempoMainAndSides" id="tiempoMainAndSides" placeholder="30" type="number" value={contenido.tiempoMainAndSides} onChange={handleChange}></input>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="tiempoCompletionist" className="block text-xs font-montserrat">Completionist</label>
+                              <input className="p-2 border rounded resize-none" name="tiempoCompletionist" id="tiempoCompletionist" placeholder="60" type="number" value={contenido.tiempoCompletionist} onChange={handleChange}></input>
+                            </div>
+                          </div>
+
+                          <h2 className="text-sm">Enlaces de Metacritic y HowLongToBeat</h2>
+                          <div className="flex flex-col items-center justify-center flex-grow gap-10 md:flex-row">
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="linkMetacritic" className="block text-xs font-montserrat">Link de Metacritic</label>
+                              <input className="p-2 border rounded resize-none" name="linkMetacritic" id="linkMetacritic" placeholder="https://www.metacritic.com/" type="text" value={contenido.linkMetacritic} onChange={handleChange}></input>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <label htmlFor="linkHowLongToBeat" className="block text-xs font-montserrat">Link de HowLongToBeat</label>
+                              <input className="p-2 border rounded resize-none" name="linkHowLongToBeat" id="linkHowLongToBeat" placeholder="https://howlongtobeat.com/" type="text" value={contenido.linkHowLongToBeat} onChange={handleChange}></input>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col gap-2">
+                              <label htmlFor="estudio" className="block text-xs font-montserrat">Estudio</label>
+                              <input className="p-2 border rounded resize-none" name="estudio" id="estudio" placeholder="Santa Monica Studio" type="text" value={contenido.estudio} onChange={handleChange}></input>
+                            </div>
+
+                          <div className="flex flex-col gap-2">
+                            <label htmlFor="genero" className="block font-montserrat">Género del juego</label>
+                            <input className="p-2 border rounded resize-none" name="genero" id="genero" placeholder="Lucha, aventuras" value={contenido.genero} onChange={handleChange}></input>
+                          </div>
+
                         <div className="pt-1 mb-3 font-medium text-gray-800 font-montserrat">
                           <label htmlFor="enlaceProyectoWeb" className="block font-bold text-gray-800 font-montserrat">Enlace al proyecto web {<span className='font-bold text-red-500'>(solo para Proyectos Web)</span>}</label>
                           <textarea className="block w-full p-2 border rounded" name="enlaceProyectoWeb" id="enlaceProyectoWeb" placeholder="https://danielgonzalezportfolio.netlify.app/" rows="2" cols="33" value={contenido.enlaceProyectoWeb} onChange={handleChange}></textarea>

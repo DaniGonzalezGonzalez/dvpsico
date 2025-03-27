@@ -51,7 +51,7 @@ export function MainTemplate() {
             </div>
           }
            <div className="flex flex-col items-center justify-center gap-4 p-4 text-center text-white bg-gray-800 color-fondo-1">
-            <p>&copy; 2024 Dvpsico - Daniel González González</p>
+            <p>&copy; 2025 Dvpsico - Daniel González González</p>
             <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/daniel-gonz%C3%A1lez-gonz%C3%A1lez-3322668a/">
               <LinkedinIcon/>
             </a>

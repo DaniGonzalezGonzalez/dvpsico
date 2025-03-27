@@ -30,10 +30,10 @@ export function Programas() {
       <h3 className="pb-8 text-xl font-medium text-center">Explora los programas del canal</h3>
       <Slider {...settings} className="slick-carousel">
         {programas.map((item) => (
-          <div key={item?.idDoc} className="p-4 slick-slide">
-            <div className="relative flex flex-col items-start justify-center p-8 text-xs text-white rounded shadow-lg min-h-60 dark-overlay">
-              <div className="absolute top-0 left-0 w-full h-full rounded" style={{ backgroundImage: `url(${item?.url})`, backgroundSize: 'cover', backgroundPosition: 'center center' }}/>
-              <div className="absolute top-0 left-0 w-full h-full bg-black rounded opacity-70"/>
+          <div key={item?.idDoc} className="p-2 sm:p-4 slick-slide">
+            <div className="relative flex flex-col items-start justify-center p-8 text-xs text-white shadow-lg rounded-xl h-[480px] sm:h-full dark-overlay">
+              <div className="absolute top-0 left-0 w-full h-[480px] sm:h-full rounded-xl" style={{ backgroundImage: `url(${item?.url})`, backgroundSize: 'cover', backgroundPosition: 'center center' }}/>
+              <div className="absolute top-0 left-0 w-full h-[480px] sm:h-full bg-black rounded-xl opacity-70"/>
               <div className="z-10">
                 <h2 className="pb-4 mt-48 mb-8 font-bold uppercase text-start">{item?.titulo}</h2>
                   <div>

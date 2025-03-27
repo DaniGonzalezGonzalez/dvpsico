@@ -5,7 +5,7 @@ export function Homepage() {
   return (
     <div className="text-sm">
       <HeadHomePage/>
-      <div id='indice-informacion-canal' className="py-40 text-white bg-indigo-100 px-14 sm:px-20 color-fondo-1">
+      <div id='indice-informacion-canal' className="px-8 py-20 text-white bg-indigo-100 sm:px-20 color-fondo-1">
         <InfoCanal/>      
       </div>
 
@@ -13,7 +13,7 @@ export function Homepage() {
           <Programas/>
       </div>
 
-      <div id="indice-horario" className="px-20 py-20 text-white bg-indigo-300 color-fondo-3">
+      <div id="indice-horario" className="px-8 py-20 text-white bg-indigo-300 sm:px-20 color-fondo-3">
         <Horario/>
       </div>
 
@@ -21,7 +21,7 @@ export function Homepage() {
         <FormasApoyo/>
       </div>
 
-      <div id="indice-agradecimientos" className="px-10 py-20 text-white bg-indigo-500 color-fondo-5">
+      <div id="indice-agradecimientos" className="px-8 py-20 text-white bg-indigo-500 lg:px-20 color-fondo-5">
         <Agradecimientos/>
       </div>
       <ScrollToTopButton/>

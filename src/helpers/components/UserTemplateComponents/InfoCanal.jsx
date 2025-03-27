@@ -9,7 +9,7 @@ export function InfoCanal() {
               <div key={item?.idDoc} >
                 <div className="items-center justify-center flex-grow gap-3 sm:flex">
                 <div className="sm:w-2/3">
-                  <h2 className="pb-4 font-bold uppercase">{item?.titulo}</h2>
+                  <h2 className="pb-4 font-bold uppercase text-xl">{item?.titulo}</h2>
                     <div className="flex flex-col gap-8 text-justify">
                       <p>{item?.descripcion} </p>
                       <p>{item?.infoExtra}</p>

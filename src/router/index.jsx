@@ -4,7 +4,7 @@ import { Homepage } from "../templates/UserTemplates/Homepage"
 import { AddContent, EditContent, Login, ErrorPage } from "../templates/AdminTemplates"
 import { ExtraProgramas } from "../helpers/components/UserTemplateComponents/ExtraInfo/ExtraProgramas"
 import { AccesoPrivado } from "../helpers/components/AdminComponents/AccesoPrivado"
-import { ExtraListadoAgradecimientos, ExtraListadoJuegos } from "../helpers/components/UserTemplateComponents/ExtraInfo"
+import { ExtraListadoAgradecimientos } from "../helpers/components/UserTemplateComponents/ExtraInfo"
 
 export const router = createBrowserRouter([
     {
@@ -40,10 +40,17 @@ export const router = createBrowserRouter([
                 path:'extra-listado-agradecimientos',
                 element: <ExtraListadoAgradecimientos/>
             },
-            {
-                path:'extra-listado-juegos',
-                element: <ExtraListadoJuegos/>
-            },
+            // {
+            //     path:'extra-listado-juegos',
+            //     element: <ExtraListadoJuegos/>
+            // },
+            // {
+            //     path:'game/:gameId',
+            //     element: 
+            //             //  <AccesoPrivado>
+            //                 <GameDetail/>
+            //             // </AccesoPrivado>
+            // },
         ]
     }
 ])

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { InstagramIcon, TwitterIcon, TwitchIcon, YoutubeIcon, SpotifyIcon } from "../../assets/Icons/Social-networks";
 import { HomeIcon, SettingsIcon, SettingsIconOpenMenu } from "../../assets/Icons";
 import { IndicePantallaGrande, IndicePantallaPequena } from "../../helpers/components/UserTemplateComponents/AnimationIndexComponents"
@@ -7,10 +7,15 @@ import { IvooxIcon } from "../../assets/Icons/Social-networks/IvooxIcon";
 
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
   }
+
+  const handleGoBack = () => {
+    navigate(-1);
+};
 
   return (
     <nav>
@@ -18,10 +23,12 @@ export function NavBar() {
       <div className="flex justify-between gap-3 text-white font-montserrat">
         {/* Botón de Settings visible en todas las pantallas. Con el hidden controlo que aparezca en pantallas pequeñas solamente */}
         {location.pathname === '/' ?
-        <button className="flex items-center p-1 space-x-2 text-white rounded hover:bg-slate-600 sm:hidden" onClick={toggleMenu}>
+        <button className="flex items-center p-1 space-x-2 text-white rounded hover:bg-gray-700 bg-opacity-80 sm:hidden" onClick={toggleMenu}>
           {!menuOpen ? <SettingsIcon/> : <SettingsIconOpenMenu/>}
         </button> :
-        <Link to='/'><HomeIcon/></Link>        
+        <div className="flex items-center gap-3 p-1 transition duration-500 rounded-lg bg-slate-800 hover:bg-slate-700">         
+          {location.pathname.startsWith('/game') ? <button className="text-xs text-white" onClick={handleGoBack}><p className="p-1">Volver</p></button> :  <Link to='/'><div><HomeIcon/></div></Link>}
+        </div>        
         }
 
         <div className="flex items-center gap-3 ml-auto text-white font-montserrat">

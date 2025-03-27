@@ -19,7 +19,7 @@ export function IndicePantallaGrande({textAlign}) {
   return (
     <div className="items-center justify-center hidden gap-5 mt-3 mb-2 text-sm text-white font-montserrat sm:flex">
         <Link to onClick={scrollToTop} className="text-center text-white font-montserrat text-link-underline">Inicio</Link>
-        <Link to onClick={() => handleScrollToEdit('indice-informacion-canal')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Información del canal</Link>
+        <Link to onClick={() => handleScrollToEdit('indice-informacion-canal')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Información del proyecto</Link>
         <Link to onClick={() => handleScrollToEdit('indice-programas')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Programas</Link>
         <Link to onClick={() => handleScrollToEdit('indice-horario')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Horario</Link>
         <Link to onClick={() => handleScrollToEdit('indice-formas-apoyo')} className={`${textAlign} text-white font-montserrat text-link-underline`}>Apoyo</Link>
