@@ -71,21 +71,15 @@ export const updateDocument = async (uid, collection, data = {}) => await update
 export async function getDocumentsWithFilterTest(collectionName, infoExtra) {
   try {
     let queryRef = collection(db, collectionName);
-    console.log(infoExtra)
     // Aplicar filtros
     if (infoExtra === 'PS4' || infoExtra === 'PS3') {
-    console.log('Entro en el primer if')
-
       queryRef = query(queryRef, where("infoExtra", "==", infoExtra));
       // if (infoUser) {
       //   queryRef = query(queryRef, where("infoUser", "==", infoUser));
       // }
-      queryRef = query(queryRef, orderBy("titulo", "desc"), limit(2)); //El limit no cambia aunque lo modifique una vez creado el indice, pero el asc y desc si
-      console.log('Termino el primer if y tengo este queryRef: ', queryRef)
-      
+      queryRef = query(queryRef, orderBy("titulo", "desc"), limit(2)); //El limit no cambia aunque lo modifique una vez creado el indice, pero el asc y desc si     
     } else if (infoExtra === 'Switch') {
-      console.log('Entro en el segundo if')
-      
+     
       queryRef = query(queryRef, where("infoExtra", "==", infoExtra));
       // if (infoUser) {
         //   queryRef = query(queryRef, where("infoUser", "==", infoUser));
@@ -93,16 +87,13 @@ export async function getDocumentsWithFilterTest(collectionName, infoExtra) {
         queryRef = query(queryRef, orderBy("titulo","desc"), limit(2));
       }
       
-      console.log('Termino los if y tengo este queryRef: ', queryRef)
     // Ejecutar la consulta
     const querySnapshot = await getDocs(queryRef);
-    console.log('Ahora veo esto del querySnapshot: ', querySnapshot)
 
     const documents = querySnapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
     }));
-    console.log(documents)
     return documents;
   } catch (error) {
     throw new Error("Error al obtener documentos filtrados: " + error.message);
