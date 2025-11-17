@@ -6,6 +6,8 @@ export function HeadHomePage() {
   const [typedWord, setTypedWord] = useState('')
   const [isErasing, setIsErasing] = useState(false)
   const [isWaiting, setIsWaiting] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [logoLoaded, setLogoLoaded] = useState(false)
 
   const typeSpeed = 500 // Velocidad de escritura (en milisegundos)
   const eraseSpeed = 100 // Velocidad de borrado (en milisegundos)
@@ -53,9 +55,23 @@ export function HeadHomePage() {
   }, [typedWord, isErasing, words, setCurrentWordIndex])
   
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-black">
       {/* Imagen de fondo */}
-      <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'url("/imagen-cabecera-dvpsico-web.jpg")', backgroundSize: 'cover', backgroundPosition: 'center center', }}/>
+      <div className="absolute top-0 left-0 w-full h-full xl:hidden" style={{ backgroundImage: 'url("/imagen-cabecera-dvpsico-web.webp")', backgroundSize: 'cover', backgroundPosition: 'center center', }}/>
+      {/* Vídeo de fondo para escritorio con fade-in */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={`hidden xl:block absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        onCanPlay={() => setVideoLoaded(true)}
+      >
+        <source src="/Video-portada.mp4" type="video/mp4" />
+        Tu navegador no soporta video HTML5.
+      </video>
 
       {/* Capa de superposición negra semitransparente */}
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"/>
@@ -63,11 +79,18 @@ export function HeadHomePage() {
       {/* Contenedor para el contenido (logo y texto) */}
       <div className="absolute w-full text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         {/* Logo */}
-        <img src="/Logo-DvPsico.svg" alt="Logo" className="h-32 mx-auto mb-6 w-28 sm:w-32"/>
+        <img 
+          src="/Logo-DvPsico.webp" 
+          alt="Logo" 
+          onLoad={() => setLogoLoaded(true)}
+          className={`h-28 mx-auto mb-6 xl:mb-14 w-28 sm:h-32 sm:w-32 xl:w-48 xl:h-48 
+            transition-opacity duration-200 ${logoLoaded ? 'opacity-100' : 'opacity-0'}`} 
+        />
+
 
         {/* Contenedor de texto animado */}
         <div className="relative">
-          <h1 className="text-4xl text-white font-montserrat" style={{ position: 'relative' }}> {typedWord} <span className="cursor" /></h1>
+          <h1 className="text-4xl xl:text-[50px] text-white font-montserrat" style={{ position: 'relative' }}> {typedWord} <span className="cursor" /></h1>
         </div>
       </div>      
     </div>

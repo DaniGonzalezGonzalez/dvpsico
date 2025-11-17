@@ -50,28 +50,80 @@ export function ExtraListadoAgradecimientos() {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen text-white pt-14 lg:pt-24 max-w-screen color-fondo-3">
-        <div className="flex flex-col items-center justify-center w-full gap-3 p-3 pt-14 lg:px-6">
-          <h1 className="lg:text-xl text-lg text-center uppercase">Listado de apoyo económico</h1>
-          <h2 className="lg:text-xs text-[10px] text-center">* Todos los detalles de cada nivel de apoyo en la sección Agradecimientos de la página principal</h2>
+      <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white pt-16 lg:pt-24 pb-10 xl:pb-20">
+        {/* Encabezado */}
+        <div className="flex flex-col items-center text-center gap-3 px-6">
+          <h1 className="text-3xl xl:mt-20 mt-10 lg:text-5xl font-light tracking-tight uppercase">
+            Listado de Apoyo Económico
+          </h1>
+          <p className="text-sm lg:text-base text-gray-400 max-w-xl">
+            * Todos los detalles de cada nivel de apoyo en la sección Agradecimientos
+            de la página principal
+          </p>
+          <div className="w-20 h-1 bg-green-500 rounded-full mt-2"></div>
         </div>
-        {/* Botones de paginación por año */}
-        <div className="flex justify-center my-6">
+
+        {/* Tabs de años */}
+        <div className="flex justify-center my-8 flex-wrap gap-3">
           {years.map((year, index) => (
-            <button key={index} onClick={() => setCurrentPage(index + 1)} className={`mx-2 p-7 cursor-pointer rounded w-[6em] h-[2.5em] flex justify-center items-center text-sm hover:bg-green-700 transition duration-500 ${ currentPage === index + 1 ? 'bg-gray-100 text-black' : 'bg-gray-600 text-white'}`}
-            >{year}</button>
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all duration-300
+                ${
+                  currentPage === index + 1
+                    ? "bg-green-500 text-black scale-105"
+                    : "bg-gray-700 text-white hover:bg-gray-600"
+                }`}
+            >
+              {year}
+            </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-5 lg:gap-6 p-6 md:grid-cols-3">
+        {/* Grid dinámico */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
           {usuarios.map((usuario, index) => (
-            <div key={index} className={`hover:scale-105 transition duration-500 p-2 lg:p-4 rounded-lg text-center shadow-lg ${usuario.nivel === 'Nivel 1' ? 'bg-slate-800' : usuario.nivel === 'Nivel 2' ? 'bg-blue-950' : 'bg-green-800'}`}>
-              <h2 className="text-base lg:text-xl font-bold text-start">{usuario.nombre}</h2>
-              <div className='flex lg:flex-col items-end text-gray-200'>
-                <p className="lg:text-lg text-xs">{usuario.numeroApoyo} mes{usuario.numeroApoyo>1&&'es'} de apoyo</p>
-                <span className="px-1 lg:hidden text-xs"> | </span>
-                <span className="mt-2 lg:text-lg text-xs font-semibold">{usuario.nivel}</span>
+            <div key={index} className={`relative overflow-hidden rounded-2xl p-6 flex flex-col justify-between
+                transition duration-500 hover:scale-[1.02] hover:shadow-2xl
+                ${
+                  usuario.nivel === "Nivel 1"
+                    ? "bg-gradient-to-br from-slate-800 to-slate-600"
+                    : usuario.nivel === "Nivel 2"
+                    ? "bg-gradient-to-br from-blue-900 to-blue-700"
+                    : "bg-gradient-to-br from-green-900 to-green-700 row-span-2"
+                }
+              `}
+            >
+              {/* Encabezado de usuario */}
+              <h2 className="text-2xl font-semibold tracking-wide mb-3">
+                {usuario.nombre}
+              </h2>
+
+              {/* Info */}
+              <div className="flex flex-col gap-2 text-gray-200">
+                <p className="text-sm lg:text-base">
+                  <span className="font-semibold text-white">
+                    {usuario.numeroApoyo}
+                  </span>{" "}
+                  mes{usuario.numeroApoyo > 1 && "es"} de apoyo
+                </p>
+                <span
+                  className={`self-start px-3 py-1 rounded-full text-xs font-semibold
+                    ${
+                      usuario.nivel === "Nivel 1"
+                        ? "bg-slate-700"
+                        : usuario.nivel === "Nivel 2"
+                        ? "bg-blue-700"
+                        : "bg-green-700"
+                    }`}
+                >
+                  {usuario.nivel}
+                </span>
               </div>
+
+              {/* Glow decorativo */}
+              <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition duration-500"></div>
             </div>
           ))}
         </div>

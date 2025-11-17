@@ -12,7 +12,7 @@ export function Login() {
         <h1 className="my-16 text-white uppercase">Login</h1>
         <LoginForm/>
         <h3 className="p-10 text-center text-white">* ZONA EXCLUSIVA PARA ADMINISTRACIÓN DE LA WEB</h3>
-        {user.uid && <Navigate to='/'/>}
+        {user?.id && <Navigate to='/'/>}
       </div>
     </>
   )

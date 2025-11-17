@@ -26,7 +26,7 @@ export function NavBar() {
         <button className="flex items-center p-1 space-x-2 text-white rounded hover:bg-gray-700 bg-opacity-80 sm:hidden" onClick={toggleMenu}>
           {!menuOpen ? <SettingsIcon/> : <SettingsIconOpenMenu/>}
         </button> :
-        <div className="flex items-center gap-3 p-1 transition duration-500 rounded-lg bg-slate-800 hover:bg-slate-700">         
+        <div className="flex items-center gap-3 p-1 transition duration-500 rounded-lg hover:bg-slate-800">         
           {location.pathname.startsWith('/game') ? <button className="text-xs text-white" onClick={handleGoBack}><p className="p-1">Volver</p></button> :  <Link to='/'><div><HomeIcon/></div></Link>}
         </div>        
         }
@@ -36,7 +36,7 @@ export function NavBar() {
             <InstagramIcon />
           </a>
           <a href="https://twitter.com/dvpsico" target="_blank" rel="noreferrer">
-            <TwitterIcon />
+            <TwitterIcon w={4} h={4} />
           </a>
           <a href="https://www.youtube.com/c/dvpsico" target="_blank" rel="noreferrer">
             <YoutubeIcon />

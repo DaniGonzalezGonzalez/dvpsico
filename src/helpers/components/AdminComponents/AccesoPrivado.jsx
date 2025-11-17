@@ -5,8 +5,8 @@ import { UserContext } from '../../../context/UserContext'
 import { Navigate } from 'react-router-dom'
 
 export function AccesoPrivado({ children }) {
-  const { uid } = useContext(UserContext)
-  if(!uid) return <Navigate to='/'/>
+  const { id } = useContext(UserContext)
+  if(!id) return <Navigate to='/'/>
 
   return (
     <>

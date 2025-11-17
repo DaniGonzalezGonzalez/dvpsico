@@ -14,7 +14,7 @@ export function AddContent() {
   return (
     <>
     {
-    user.uid &&
+    user?.id &&
     <div className="flex items-center justify-center min-h-screen p-8 pt-20 bg-gray-800">
         <div className="p-6 mx-8 my-8 bg-gray-600 rounded shadow-lg sm:mx-2">
           <form className='flex flex-col gap-3 space-y-4' onSubmit={handleSubmit}>

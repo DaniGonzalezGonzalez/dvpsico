@@ -63,25 +63,25 @@ export function useGetData() {
     .finally(()=> setIsLoading(false))
   }, [])
 
-  useEffect(() => {
-    getDocuments('ArchivosDisenoWeb')
-    .then((datosArchivosDisenoWeb) => {
-      if(!datosArchivosDisenoWeb.length) throw new Error('No hay archivos para diseño de la web')
-      setArchivosDisenoWeb(datosArchivosDisenoWeb)
-    })
-    .catch(setError)
-    .finally(()=> setIsLoading(false))
-  }, [])
+  // useEffect(() => {
+  //   getDocuments('ArchivosDisenoWeb')
+  //   .then((datosArchivosDisenoWeb) => {
+  //     if(!datosArchivosDisenoWeb.length) throw new Error('No hay archivos para diseño de la web')
+  //     setArchivosDisenoWeb(datosArchivosDisenoWeb)
+  //   })
+  //   .catch(setError)
+  //   .finally(()=> setIsLoading(false))
+  // }, [])
 
-  useEffect(() => {
-    getDocuments('ListadoDeJuegos')
-    .then((datosListadoJuegos) => {
-      if(!datosListadoJuegos.length) throw new Error('No hay juegos en el listado')
-      setListadoJuegos(datosListadoJuegos)
-    })
-    .catch(setError)
-    .finally(()=> setIsLoading(false))
-  }, [])
+  // useEffect(() => {
+  //   getDocuments('ListadoDeJuegos')
+  //   .then((datosListadoJuegos) => {
+  //     if(!datosListadoJuegos.length) throw new Error('No hay juegos en el listado')
+  //     setListadoJuegos(datosListadoJuegos)
+  //   })
+  //   .catch(setError)
+  //   .finally(()=> setIsLoading(false))
+  // }, [])
 
   return {
     infoCanal,
@@ -89,8 +89,8 @@ export function useGetData() {
     formasApoyo,
     horario,
     agradecimientos,
-    archivosDisenoWeb,
-    listadoJuegos,
+    // archivosDisenoWeb,
+    // listadoJuegos,
     error,
     isLoading
   }

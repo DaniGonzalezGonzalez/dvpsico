@@ -4,10 +4,12 @@ import { UserContext } from "../context/UserContext"
 import { NavBar } from "./UserTemplates/NavBar"
 import { HomeIcon } from "../assets/Icons"
 import { LinkedinIcon } from "../assets/Icons/Social-networks/LinkedInIcon"
+import { HomePageSkeleton } from "../helpers/components/HomePageSkeleton"
 
 export function MainTemplate() {
   const [isScrolled, setIsScrolled] = useState(false)
   const { user, _signOut } = useContext(UserContext)
+  const [loading, setLoading] = useState(true)
   const location = useLocation()
 
   useEffect(() => {
@@ -27,9 +29,26 @@ export function MainTemplate() {
     }
   }, [])
 
+    // Manejar estado de carga de toda la página
+    useEffect(() => {
+      const handleLoad = () => setLoading(false);
+  
+      if (document.readyState === "complete") {
+        setLoading(false);
+      } else {
+        window.addEventListener("load", handleLoad);
+        return () => window.removeEventListener("load", handleLoad);
+      }
+    }, []);
+  
+    // Mientras carga, mostrar Skeleton
+    if (loading) {
+      return <HomePageSkeleton />;
+    }
+
   return (
     <>
-      <header className={`${isScrolled ? `transition-all duration-1000 ease-in-out opacity-0 pointer-events-none` : `${location.pathname === '/' ? 'bg-transparent h-32': 'bg-gray-600 color-fondo-1 shadow-md h-22'}` } fixed top-0 w-screen z-50 transition-all duration-300 ease-in-out`}>
+      <header className={`${isScrolled ? `transition-all duration-1000 ease-in-out opacity-0 pointer-events-none` : `${location.pathname === '/' ? 'bg-transparent h-32': 'h-22'}` } fixed top-0 w-screen z-50 transition-all duration-300 ease-in-out`}>
           <div className={`${ location.pathname === '/' && isScrolled ? "m-2" : "m-2 mt-2" } p-3`}>
             <NavBar isScrolled={isScrolled}/>
           </div>
@@ -42,9 +61,9 @@ export function MainTemplate() {
       <footer className="flex flex-col text-sm text-white">
           <div className="flex items-center justify-center gap-8 p-2 bg-gray-600 color-fondo-2">
             <Link to='/'><HomeIcon/></Link>
-            { user.uid ? <button className="p-1 rounded hover:bg-gray-500" onClick={_signOut}>Cerrar sesión</button> : <Link to='login'>Login</Link> }
+            { user?.id ? <button className="p-1 rounded hover:bg-gray-500" onClick={_signOut}>Cerrar sesión</button> : <Link to='login'>Login</Link> }
           </div>
-          {user.uid &&
+          {user?.id &&
             <div className="flex justify-center gap-8 p-2 bg-gray-900">
               <Link className="p-1 rounded hover:bg-gray-800" to='/admin-add-content'>Añadir contenido</Link>
               <Link className="p-1 rounded hover:bg-gray-800" to='/admin-edit-content'>Editar contenido</Link>
