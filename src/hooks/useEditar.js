@@ -65,16 +65,49 @@ export function useEditar(uid, option) {
     setNombreArchivo(nombre)
   }
 
+
   const uploadFile = async (file) => {
-    const storageRef = ref(storage, `${option}/${nombreArchivo}`)
-    await uploadBytes(storageRef, file)
-    const almacenURL = await getDownloadURL(storageRef) // retorna un string que es la url
-    if (archivoSubido){
-      return almacenURL
-    } else {
-      return ''
+    // Si no hay archivo nuevo, devolvemos string vacío como en tu versión original
+    if (!file) return '';
+  
+    // Obtenemos el nombre del archivo
+    const nombreArchivo = file.name;
+  
+    // Construimos la ruta interna en el bucket
+    const filePath = `${option}/${nombreArchivo}`;
+  
+    // Subimos el archivo al bucket indicado por "option"
+    const { data, error } = await supabase.storage
+      .from(option)
+      .upload(filePath, file, {
+        upsert: true // permite reemplazar la imagen anterior si existe
+      });
+  
+    if (error) {
+      throw new Error('Error al subir archivo: ' + error.message);
     }
-  }
+  
+    // Construimos la URL pública (restando confiar en data.path)
+    const fileUrl = `${supabase.storageUrl}/object/public/${option}/${data.path}`;
+  
+    // Si "archivoSubido" es true, devolvemos la URL
+    if (archivoSubido) {
+      return fileUrl;
+    } else {
+      return '';
+    }
+  };
+
+  // const uploadFile = async (file) => {
+  //   const storageRef = ref(storage, `${option}/${nombreArchivo}`)
+  //   await uploadBytes(storageRef, file)
+  //   const almacenURL = await getDownloadURL(storageRef) // retorna un string que es la url
+  //   if (archivoSubido){
+  //     return almacenURL
+  //   } else {
+  //     return ''
+  //   }
+  // }
 
   const handleFileChange = (e) => {
     setArchivoSubido(true)

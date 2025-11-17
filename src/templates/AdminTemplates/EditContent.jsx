@@ -15,7 +15,7 @@ export function EditContent() {
 
   const parametros = useParams()
   const { id } = parametros
-  const { handleSubmit, tituloRef, handleDelete, isLoading, handleFileChange, handleNombreArchivo, nombreArchivo } = useEditar(contenido.idDoc, option)
+  const { handleSubmit, tituloRef, handleDelete, isLoading, handleFileChange, handleNombreArchivo, nombreArchivo } = useEditar(contenido.id, option)
 
   const fetchData = async () => {
     try {
@@ -69,7 +69,7 @@ export function EditContent() {
 
   return (
     <> 
-    { user.uid && 
+    { user?.id && 
       <div>
         {error && (<div className="items-center justify-center h-screen"><span className="text-xl text-gray-900 font-montserrat">{error.message}</span></div>)}
         <div className="min-h-screen p-4 pt-20 pb-10 bg-gray-800">
@@ -85,9 +85,9 @@ export function EditContent() {
             </select>
             <h2 className="mt-8 text-4xl text-center text-gray-100 font-montserrat">{option}</h2>
             {sortedData.map((item) => (
-              <div key={item.idDoc} className="flex justify-between p-4 mt-5 bg-gray-100 border border-white rounded">
+              <div key={item.id} className="flex justify-between p-4 mt-5 bg-gray-100 border border-white rounded">
                 {
-                  contenido && contenido.idDoc === item.idDoc ?
+                  contenido && contenido.id === item.id ?
                   <form className="grid w-full gap-10 md:flex" onSubmit={handleGuardarContenido}>
                       <div className='w-full'>
                         <div className="mb-3 text-lg font-bold text-gray-800 font-montserrat">
@@ -112,7 +112,7 @@ export function EditContent() {
                         </div>
 
 
-                        <h1 className="mt-10 mb-5">Datos para registro de videojuegos</h1>
+                        {/* <h1 className="mt-10 mb-5">Datos para registro de videojuegos</h1>
                         <h2 className="text-sm">Datos de Metacritic</h2>
                           <div className="flex flex-col items-center justify-center flex-grow gap-10 md:flex-row">
                             <div className="flex flex-col gap-2">
@@ -123,9 +123,9 @@ export function EditContent() {
                               <label htmlFor="notaMetacriticUsuarios" className="block text-xs font-montserrat">Nota de usuarios en Metacritic</label>
                               <input className="p-2 border rounded resize-none" name="notaMetacriticUsuarios" id="notaMetacriticUsuarios" placeholder="75" type="number" step={0.1} value={contenido.notaMetacriticUsuarios} onChange={handleChange}></input>
                             </div>
-                          </div>
+                          </div> */}
 
-                          <h2 className="text-sm">Datos de HowLongToBeat</h2>
+                          {/* <h2 className="text-sm">Datos de HowLongToBeat</h2>
                           <div className="flex flex-col items-center justify-center gap-10">
                             <div className="flex flex-col gap-2">
                               <label htmlFor="tiempoMainStory" className="block text-xs font-montserrat">Main story</label>
@@ -139,10 +139,10 @@ export function EditContent() {
                               <label htmlFor="tiempoCompletionist" className="block text-xs font-montserrat">Completionist</label>
                               <input className="p-2 border rounded resize-none" name="tiempoCompletionist" id="tiempoCompletionist" placeholder="60" type="number" value={contenido.tiempoCompletionist} onChange={handleChange}></input>
                             </div>
-                          </div>
+                          </div> */}
 
-                          <h2 className="text-sm">Enlaces de Metacritic y HowLongToBeat</h2>
-                          <div className="flex flex-col items-center justify-center flex-grow gap-10 md:flex-row">
+                          {/* <h2 className="text-sm">Enlaces de Metacritic y HowLongToBeat</h2> */}
+                          {/* <div className="flex flex-col items-center justify-center flex-grow gap-10 md:flex-row">
                             <div className="flex flex-col gap-2">
                               <label htmlFor="linkMetacritic" className="block text-xs font-montserrat">Link de Metacritic</label>
                               <input className="p-2 border rounded resize-none" name="linkMetacritic" id="linkMetacritic" placeholder="https://www.metacritic.com/" type="text" value={contenido.linkMetacritic} onChange={handleChange}></input>
@@ -151,17 +151,17 @@ export function EditContent() {
                               <label htmlFor="linkHowLongToBeat" className="block text-xs font-montserrat">Link de HowLongToBeat</label>
                               <input className="p-2 border rounded resize-none" name="linkHowLongToBeat" id="linkHowLongToBeat" placeholder="https://howlongtobeat.com/" type="text" value={contenido.linkHowLongToBeat} onChange={handleChange}></input>
                             </div>
-                          </div>
+                          </div> */}
 
-                          <div className="flex flex-col gap-2">
+                          {/* <div className="flex flex-col gap-2">
                               <label htmlFor="estudio" className="block text-xs font-montserrat">Estudio</label>
                               <input className="p-2 border rounded resize-none" name="estudio" id="estudio" placeholder="Santa Monica Studio" type="text" value={contenido.estudio} onChange={handleChange}></input>
-                            </div>
-
+                            </div> */}
+{/* 
                           <div className="flex flex-col gap-2">
                             <label htmlFor="genero" className="block font-montserrat">Género del juego</label>
                             <input className="p-2 border rounded resize-none" name="genero" id="genero" placeholder="Lucha, aventuras" value={contenido.genero} onChange={handleChange}></input>
-                          </div>
+                          </div> */}
 
                         <div className="pt-1 mb-3 font-medium text-gray-800 font-montserrat">
                           <label htmlFor="enlaceProyectoWeb" className="block font-bold text-gray-800 font-montserrat">Enlace al proyecto web {<span className='font-bold text-red-500'>(solo para Proyectos Web)</span>}</label>
